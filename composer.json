@@ -1,0 +1,29 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+
+        },
+        "psr-0": {
+            "": [
+                "src/"
+            ]
+        }
+    },
+
+    "require": {
+        "squizlabs/php_codesniffer": "*"
+    },
+
+    "scripts": {
+        "post-install-cmd": [
+            "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)",
+            "git config core.hooksPath .githooks"
+        ],
+        "post-update-cmd": [
+            "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)",
+            "git config core.hooksPath .githooks"
+        ]
+    }
+}
+
