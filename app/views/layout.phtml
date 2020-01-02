@@ -1,0 +1,22 @@
+<?php
+$viewName = $viewName ?? 'error';
+$args = $args ?? '';
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Пример страницы</title>
+    <style>
+        p { color:  navy; }
+    </style>
+</head>
+<body>
+<div class="main-content">
+   <?php require_once ROOT. '/app/views/' . $viewName . '.phtml'?>
+</div>
+<footer>
+
+</footer>
+</body>
+</html>
