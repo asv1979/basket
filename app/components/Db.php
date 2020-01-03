@@ -1,15 +1,18 @@
 <?php
+/**
+ *  @author Alexey Vasilyev <asv2108@gmail.com>
+ */
 namespace App\components;
 
 /**
  * Class Db
- *
- * @package App\components
  */
 class Db
 {
 
     /**
+     * Get db connection/
+     *
      * @return PDO
      */
     public static function getConnection()

@@ -1,20 +1,33 @@
 <?php
+/**
+ * Routing.
+ *
+ * @author Alexey Vasilyev <asv2108@gmail.com>
+ */
+
 namespace App\components;
 
-use App\controllers\IndexController;
-
+/**
+ * Class Router
+ */
 class Router
 {
+    /**
+     * @var mixed
+     */
+    private $_routes;
 
-    private $routes;
-
+    /**
+     * Router constructor.
+     */
     public function __construct()
     {
-        $routesPath = ROOT . '/app/config/routes.php';
-        $this->routes = include($routesPath);
+        $this->_routes = include_once(ROOT . '/app/config/routes.php');
     }
 
-
+    /**
+     * @return string
+     */
     private function getURI()
     {
         if (!empty($_SERVER['REQUEST_URI'])) {
@@ -22,13 +35,17 @@ class Router
         }
     }
 
+    /**
+     * Consider uri get a need controller
+     */
     public function run()
     {
         $uri = $this->getURI();
+        $result = null;
 
-        foreach ($this->routes as $uriPattern => $path) {
+        foreach ($this->_routes as $uriPattern => $path) {
 
-            if (preg_match("~$uriPattern~", $uri) && $uri !== 'favicon.ico') {
+            if ($uriPattern === $uri) {
                 $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
                 $segments = explode('/', $internalRoute);
                 $controllerName = array_shift($segments) . 'Controller';
@@ -36,7 +53,7 @@ class Router
                 $actionName = 'action' . ucfirst(array_shift($segments));
                 $parameters = $segments;
 
-                $controllerFile = ROOT . '/controllers/' .$controllerName. '.php';
+                $controllerFile = ROOT . '/controllers/' . $controllerName . '.php';
                 if (file_exists($controllerFile)) {
                     include_once($controllerFile);
                 }
@@ -46,16 +63,17 @@ class Router
                 $full_class_name = $project_name . '\\' . $package_name . '\\' . $controllerName;
                 $controllerObject = new  $full_class_name();
 
-
-                /*$result = $controllerObject->$actionName($parameters); - OLD VERSION */
-
                 $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
 
                 if ($result != null) {
                     break;
                 }
             }
-
         }
+        if ($result === null) {
+            include_once(ROOT . '/public/404.phtml');
+        }
+
+        return true;
     }
 }
