@@ -1,0 +1,8 @@
+.to-basket, .from-basket {
+    color: blue;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}

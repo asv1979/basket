@@ -1,2 +1,43 @@
 <h1>List Page</h1>
-<a href="main">Back</a>
+<div>
+    <span class="ajax-message"></span>
+    <span class="button-back-top">
+        <a href="main">Back to main page</a>
+    </span>
+</div>
+<div>
+    <span class="basket-full"> <a href="basket" class="<?= $class ?>">>To my basket</a></span>
+    <table class="product-list">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Buy</th>
+        </tr>
+        <?php
+        $counter = 1;
+        foreach ($args as $item): ?>
+            <tr>
+                <td><?= $counter ?></td>
+                <td><?= $item['name'] ?></td>
+                <td><?= $item['quantity'] ?></td>
+                <td><?= $item['price'] ?></td>
+                <td>
+                <span class="to-basket"
+                      data-id="<?= $item['id'] ?>"
+                      data-url="addToBasket"
+                      data-price="<?= $item['price'] ?>"
+                      data-name="<?= $item['name'] ?>"
+                >
+                    To basket
+                </span>
+                </td>
+            </tr>
+            <?php
+            $counter++;
+        endforeach;
+        ?>
+    </table>
+</div>
+

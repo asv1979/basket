@@ -1,8 +1,14 @@
 <?php
 /**
- *  @author Alexey Vasilyev <asv2108@gmail.com>
+ * @author Alexey Vasilyev <asv2108@gmail.com>
  */
+
 namespace App\controllers;
+
+session_start();
+
+use App\components\Layout;
+use App\models\Product;
 
 /**
  * Main controller
@@ -12,6 +18,11 @@ namespace App\controllers;
 class IndexController
 {
     /**
+     *  Include main html template
+     */
+    use Layout;
+
+    /**
      * Shows main page
      *
      * @return bool
@@ -19,6 +30,7 @@ class IndexController
     public function actionIndex()
     {
         $params['view'] = 'index/index';
+        $params['title'] = 'Main page';
         $params['args'] = 'Go to shopping!';
         $this->getLayout($params);
         return true;
@@ -32,8 +44,10 @@ class IndexController
     public function actionList()
     {
         $params['view'] = 'index/list';
-        $params['args'] = 'Go to shopping!';
-        $this->_getLayout($params);
+        $params['title'] = 'List page';
+        $params['args'] = Product::getList();
+        $params['class'] = $_SESSION['productInBasket'] ? 'show' : 'hide';
+        $this->getLayout($params);
         return true;
     }
 
@@ -46,22 +60,6 @@ class IndexController
      */
     public function actionView($id)
     {
-        return true;
-    }
-
-    /**
-     * Include main html file
-     *
-     * @param $params
-     *
-     * @return bool
-     */
-    private function _getLayout($params)
-    {
-        $viewName = $params['view'];
-        $args = $params['args'];
-        included_once(ROOT . '/app/views/layout.phtml');
-
         return true;
     }
 }

@@ -7,5 +7,8 @@
 return array(
     '' => 'index/index',
     'main' => 'index/index',
-    'buy' => 'index/list'
+    'buy' => 'index/list',
+    'addToBasket' => 'basket/add',
+    'basket' => 'basket/index',
+    'deleteFromBasket' => 'basket/delete',
 );

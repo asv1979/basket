@@ -1,22 +1,28 @@
 <?php
 $viewName = $viewName ?? 'error';
 $args = $args ?? '';
+$title = $title ?? 'Error page';
+$class = $class ?? '';
 ?>
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Пример страницы</title>
-    <style>
-        p { color:  navy; }
-    </style>
-</head>
-<body>
-<div class="main-content">
-   <?php require_once ROOT. '/app/views/' . $viewName . '.phtml'?>
-</div>
-<footer>
 
-</footer>
+    <title><?=$title?></title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+    <link rel="stylesheet" href="../../public/css/style.css" type="text/css">
+
+    <script type="text/javascript" src= "../../public/js/jquery.js"></script>
+</head>
+
+<body>
+<script type="text/javascript" src= "../../public/js/main.js"></script>
+<div class="main-content">
+    <?php require_once ROOT. '/app/views/' . $viewName . '.phtml'?>
+</div>
+<footer></footer>
 </body>
+</html>
 </html>

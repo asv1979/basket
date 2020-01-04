@@ -1,0 +1,46 @@
+<?php $sum = 0 ?>
+<div>
+    <span class="ajax-message"></span>
+    <span class="button-back-top">
+        <a href="main">Back to main page</a>
+    </span>
+</div>
+<div>
+    <?php if ($args): ?>
+    <table class="product-list-basket">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Delete</th>
+        </tr>
+        <?php
+            $counter = 1;
+            foreach ($args as $item) :
+                ?>
+                <tr>
+                    <td><?= $counter ?></td>
+                    <td><?= $item['name'] ?></td>
+                    <td><?= $item['price'] ?></td>
+                    <td>
+                <span class="from-basket"
+                      data-id="<?= $item['id'] ?>"
+                      data-url="deleteFromBasket"
+                      data-price="<?= $item['price'] ?>"
+                      data-name="<?= $item['name'] ?>"
+                >
+                    Delete from basket
+                </span>
+                    </td>
+                </tr>
+                <?php
+                $counter++;
+                $sum += $item['price'];
+            endforeach;
+        ?>
+    </table>
+ <?php endif; ?>
+</div>
+<div>
+    <p>All products cost is - <?= $sum ?></p>
+</div>

@@ -26,6 +26,8 @@ class Router
     }
 
     /**
+     * Get http uri
+     *
      * @return string
      */
     private function getURI()
@@ -54,13 +56,12 @@ class Router
                 $parameters = $segments;
 
                 $controllerFile = ROOT . '/controllers/' . $controllerName . '.php';
-                if (file_exists($controllerFile)) {
-                    include_once($controllerFile);
+                if (file_exists($controllerFile))
+                {
+                    include_once ($controllerFile);
                 }
 
-                $project_name = '\App';
-                $package_name = 'controllers';
-                $full_class_name = $project_name . '\\' . $package_name . '\\' . $controllerName;
+                $full_class_name = '\App\\controllers\\' . $controllerName;
                 $controllerObject = new  $full_class_name();
 
                 $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
@@ -70,7 +71,7 @@ class Router
                 }
             }
         }
-        if ($result === null) {
+        if ($result === null && !isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $uri !== 'favicon.ico') {
             include_once(ROOT . '/public/404.phtml');
         }
 
