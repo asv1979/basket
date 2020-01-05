@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba93c861-2206-4eea-b491-81a58f606e11" name="Default" comment="Fix router and add layout">
-      <change afterPath="$PROJECT_DIR$/app/components/Layout.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/BasketController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/migrates/basket.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/Product.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/SessionBasketInit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Db.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Layout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Layout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/BasketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BasketController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/index/list.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/index/list.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layout.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layout.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/404.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/public/404.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/basket/index.phtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,6 +130,7 @@
       <workItem from="1578041363876" duration="4884000" />
       <workItem from="1578046274502" duration="14937000" />
       <workItem from="1578130557848" duration="18228000" />
+      <workItem from="1578241387390" duration="643000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1577721969810</created>
@@ -210,10 +199,10 @@
       <screen x="65" y="24" width="1535" height="876" />
     </state>
     <state x="725" y="205" key="#xdebugger.XInspectDialog/65.24.1535.876@65.24.1535.876" timestamp="1577798125925" />
-    <state x="443" y="46" key="CommitChangelistDialog2" timestamp="1578049527813">
+    <state x="443" y="46" key="CommitChangelistDialog2" timestamp="1578150023346">
       <screen x="65" y="24" width="1535" height="876" />
     </state>
-    <state x="443" y="46" key="CommitChangelistDialog2/65.24.1535.876@65.24.1535.876" timestamp="1578049527813" />
+    <state x="443" y="46" key="CommitChangelistDialog2/65.24.1535.876@65.24.1535.876" timestamp="1578150023346" />
     <state x="571" y="365" key="ComposerInitDialogKey" timestamp="1577790191070">
       <screen x="65" y="24" width="1535" height="876" />
     </state>
@@ -270,10 +259,10 @@
       <screen x="65" y="24" width="1535" height="876" />
     </state>
     <state width="1489" height="241" key="GridCell.Tab.2.right/65.24.1535.876@65.24.1535.876" timestamp="1578149427691" />
-    <state x="639" y="263" key="NewPhpClassDialog" timestamp="1578141814831">
+    <state x="639" y="263" key="NewPhpClassDialog" timestamp="1578241594119">
       <screen x="65" y="24" width="1535" height="876" />
     </state>
-    <state x="639" y="263" key="NewPhpClassDialog/65.24.1535.876@65.24.1535.876" timestamp="1578141814831" />
+    <state x="639" y="263" key="NewPhpClassDialog/65.24.1535.876@65.24.1535.876" timestamp="1578241594119" />
     <state x="633" y="375" key="NewPhpFileDialog" timestamp="1578148692863">
       <screen x="65" y="24" width="1535" height="876" />
     </state>
@@ -286,18 +275,18 @@
       <screen x="65" y="24" width="1535" height="876" />
     </state>
     <state x="65" y="98" key="SettingsEditor/65.24.1535.876@65.24.1535.876" timestamp="1578043062739" />
-    <state x="432" y="185" key="Vcs.Push.Dialog.v2" timestamp="1578049535969">
+    <state x="432" y="185" key="Vcs.Push.Dialog.v2" timestamp="1578150036263">
       <screen x="65" y="24" width="1535" height="876" />
     </state>
-    <state x="432" y="185" key="Vcs.Push.Dialog.v2/65.24.1535.876@65.24.1535.876" timestamp="1578049535969" />
+    <state x="432" y="185" key="Vcs.Push.Dialog.v2/65.24.1535.876@65.24.1535.876" timestamp="1578150036263" />
     <state width="768" height="452" key="XDebugger.FullValuePopup" timestamp="1578148078510">
       <screen x="65" y="24" width="1535" height="876" />
     </state>
     <state width="768" height="452" key="XDebugger.FullValuePopup/65.24.1535.876@65.24.1535.876" timestamp="1578148078510" />
-    <state x="495" y="277" key="com.intellij.ide.util.TipDialog" timestamp="1578130558013">
+    <state x="495" y="277" key="com.intellij.ide.util.TipDialog" timestamp="1578241419107">
       <screen x="65" y="24" width="1535" height="876" />
     </state>
-    <state x="495" y="277" key="com.intellij.ide.util.TipDialog/65.24.1535.876@65.24.1535.876" timestamp="1578130558013" />
+    <state x="495" y="277" key="com.intellij.ide.util.TipDialog/65.24.1535.876@65.24.1535.876" timestamp="1578241419107" />
     <state x="98" y="193" width="709" height="538" key="find.popup" timestamp="1578071948043">
       <screen x="65" y="24" width="1535" height="876" />
     </state>

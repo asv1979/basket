@@ -2,11 +2,11 @@
 /**
  * @author Alexey Vasilyev <asv2108@gmail.com>
  */
-
 namespace App\controllers;
 
 session_start();
 
+use App\components\SessionBasketInit;
 use App\models\Product;
 use App\components\Layout;
 
@@ -18,7 +18,7 @@ class BasketController
     /**
      *  Include main html template
      */
-    use Layout;
+    use Layout, SessionBasketInit;
 
     /**
      * Show user selected products
@@ -99,9 +99,7 @@ class BasketController
      */
     private function _addProductToSession($data)
     {
-        if (!isset($_SESSION['productInBasket'])) {
-            $_SESSION['productInBasket'] = [];
-        }
+        $this->createBasketSessionContainer();
         if (array_push($_SESSION['productInBasket'], $data)) {
             return Product::decreaseQuantity($data);
         } else {

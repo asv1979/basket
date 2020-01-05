@@ -9,6 +9,7 @@ session_start();
 
 use App\components\Layout;
 use App\models\Product;
+use App\components\SessionBasketInit;
 
 /**
  * Main controller
@@ -20,7 +21,7 @@ class IndexController
     /**
      *  Include main html template
      */
-    use Layout;
+    use Layout, SessionBasketInit;
 
     /**
      * Shows main page
@@ -43,6 +44,7 @@ class IndexController
      */
     public function actionList()
     {
+        $this->createBasketSessionContainer();
         $params['view'] = 'index/list';
         $params['title'] = 'List page';
         $params['args'] = Product::getList();
